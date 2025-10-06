@@ -70,7 +70,7 @@ body {
 
 header {
     /* Dibuat semi-transparan agar latar belakang pink terlihat */
-    background-color: rgba(58, 58, 58, 0.85); 
+    background-color: rgba(255, 0, 123, 0.85); 
     color: #fff;
     padding: 30px 20px;
     margin-bottom: 20px;
