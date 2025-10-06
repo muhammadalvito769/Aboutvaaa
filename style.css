@@ -1,0 +1,135 @@
+/* RESET DASAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* GANTI BACKGROUND KE PINK */
+    background-color: #FFC0CB; /* Warna pink muda (Light Pink) */
+    color: #333;
+    text-align: center;
+    padding-bottom: 50px; 
+
+    /* EFEK LOVE BERTERBANGAN */
+    overflow: hidden; /* Penting agar love tidak membuat scrollbar */
+    position: relative; /* Agar elemen love bisa diposisikan absolut di dalamnya */
+}
+
+/* --- DEFINISI BENTUK DAN ANIMASI LOVE --- */
+
+.heart {
+    position: absolute;
+    background-color: rgba(255, 20, 147, 0.7); /* Pink gelap transparan (Deep Pink) */
+    transform: rotate(-45deg);
+    animation: floatHeart 10s infinite; /* Animasi default */
+    opacity: 0; 
+    z-index: -1; /* Di bawah konten utama */
+    pointer-events: none;
+}
+
+/* Membuat bentuk love menggunakan pseudo-elemen */
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+.heart:before {
+    left: 50%;
+}
+
+.heart:after {
+    top: -50%;
+}
+
+/* KUNCI ANIMASI: Mengubah posisi, ukuran, dan opasitas */
+@keyframes floatHeart {
+    0% {
+        transform: translate(0, 0) rotate(-45deg) scale(0.2);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+        transform: translate(0, -10vh) rotate(-45deg) scale(1);
+    }
+    100% {
+        transform: translate(0, -100vh) rotate(-45deg) scale(0.4);
+        opacity: 0;
+    }
+}
+
+
+/* --- PENYESUAIAN WARNA DAN OPASITAS UNTUK KONTEN UTAMA --- */
+
+header {
+    /* Dibuat semi-transparan agar latar belakang pink terlihat */
+    background-color: rgba(58, 58, 58, 0.85); 
+    color: #fff;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative; 
+    z-index: 1; /* Di atas hati */
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+/* GALERI FOTO */
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+    position: relative; 
+    z-index: 1;
+}
+
+.gallery-item {
+    background-color: rgba(255, 255, 255, 0.95); 
+    border: 1px solid #FF69B4; /* Hot Pink Border */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03); 
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; 
+    display: block;
+}
+
+.caption {
+    padding: 15px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #3a3a3a;
+}
+
+/* FOOTER */
+footer {
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(58, 58, 58, 0.85);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1;
+}
